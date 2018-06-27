@@ -1,0 +1,21 @@
+﻿FORMAT==100
+SKIPCHECK;
+
+['March Forecast to Budget','Amount'] =N:
+IF(Numbr(SubSt(!FP Fiscal Period, 1, 2)) <= 3,
+  ['Actual'],
+ (
+
+['Monthly Forecast','Amount']=>
+	DB('FP Forecast',ATTRS('UPP Project', !UPP Project, 'Segment'),'Monthly Forecast',!FP Fiscal Period,!FP Current Department,!UPP Account,'Amount');
+
+['March Forecast','Amount']=>
+	DB('FP Forecast',ATTRS('UPP Project', !UPP Project, 'Segment'),'March Forecast',!FP Fiscal Period,!FP Current Department,!UPP Account,'Amount');
+
+['July Forecast','Amount']=>
+	DB('FP Forecast',ATTRS('UPP Project', !UPP Project, 'Segment'),'July Forecast',!FP Fiscal Period,!FP Current Department,!UPP Account,'Amount');
+
+['Original Budget','Amount']=>
+	DB('FP Forecast',ATTRS('UPP Project', !UPP Project, 'Segment'),'Original Budget',!FP Fiscal Period,!FP Current Department,!UPP Account,'Amount');
+
+
